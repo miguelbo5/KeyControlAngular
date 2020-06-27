@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light separacion">
+
+  <div class="navbar-header">
+    <a class="navbar-brand" [routerLink]="['']">
+      <img alt="Brand" src="../../assets/img/logo_claro_recortado.png">
+    </a>
+  </div>
+
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Busca un producto..." aria-label="Search">
+    <button class="btn btn-info" type="submit">Buscar</button>
+  </form>
+
+  <div class="iconos">
+    <fa-icon class="icono" size="2x" [styles]="{'color': '#00A5FF'}" [routerLink]="['carrito']" [icon]="faShoppingCart"></fa-icon>
+    <fa-icon class="icono" size="2x" [styles]="{'color': '#00A5FF'}" [routerLink]="['login']" [icon]="faUser"></fa-icon>
+  </div>
+
+</nav>

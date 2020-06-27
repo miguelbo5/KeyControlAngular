@@ -1,0 +1,14 @@
+principal{
+    width: 80%;
+    display: table-cell;
+}
+
+producto{
+    width: 80%;
+    display: table-cell;
+}
+
+carrito{
+    width: 80%;
+    display: table-cell;
+}

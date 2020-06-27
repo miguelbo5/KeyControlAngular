@@ -1,0 +1,42 @@
+<main>
+
+    <p class="texto_cabecera">Articulos del carrito</p>
+
+    <div class="articulos_precio_container">
+
+        <div  class="articulos_carrito">
+
+            <div *ngFor="let producto of listadoProductosCarrito; let i = index" class="producto_carrito">
+
+                <img [routerLink]="['/producto/' + producto.id]" class="imagen_producto" src="..\..\assets\img\miniaturas_tienda\{{producto.imagen}}" alt="">
+                    
+                <div class="nombre_precio">
+
+                    <p [routerLink]="['/producto/' + producto.id]" class="nombre">{{producto.nombre}}</p>
+
+                    <p class="precio">{{producto.precio | currency:'EUR':'symbol-narrow':'2.0-2' | dinero}}</p>
+
+                    <button  data-toggle="tooltip" (click)="borrarProducto(i)"
+                    data-placement="right" title="Quitar producto" class="boton_quitar button">
+
+                        <fa-icon size="2x"  [styles]="{'color': 'red'}" [icon]="faTimes"></fa-icon>
+
+                    </button>
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="precio_total">
+
+            <p class="precio_inf">Precio total: <span [innerHTML]= "precioListado | currency:'EUR':'symbol-narrow':'2.0-2' | dinero | negrita"></span></p>
+
+            <button class="button button3">Realizar pedido</button>
+            
+        </div>
+
+    </div>
+
+</main>

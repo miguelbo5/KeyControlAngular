@@ -1,0 +1,99 @@
+main{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.nombre_producto{
+    font-size: 30px;
+}
+.container_imagen{
+    width: 50%;
+    height: auto;
+    float: left;
+}
+.imagen_producto{
+    width: 100%;
+    height: 100%;
+}
+.container_precio{
+    width: 50%;
+    height: 30%;
+    margin-top: 5%;
+    float: right;
+}
+.container_imagen_precio{
+    width: 100%;
+    height: 300px;
+}
+.precio_producto{
+    text-align: center;
+    font-size: 30px;
+    color: orange;
+    vertical-align: middle;
+}
+.caracteristicas{
+    margin-bottom: 5%;
+    overflow: scroll;
+    height: 500px;
+    float: left;
+}
+.titulo_caracteristicas{
+    margin-top: 4%;
+    font-size: 30px;
+    margin-bottom: 0;
+}
+.button {
+    border: none;
+    color: white;
+    padding: 10px 28px;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: middle;
+    margin: 4px 2px;
+    height: 80px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #008CBA; 
+    color: white; 
+}
+.boton_favoritos{
+    width: 20%;
+    background-color: white;
+    border: 2px solid #008CBA;
+}
+.boton_favoritos:hover{
+    background-color: #008CBA;
+    width: 25%;
+    transition: 0.5s;
+}
+
+.boton_carrito{
+    width: 50%;
+    color: white; 
+    font-size: large;
+}
+.boton_carrito:hover{
+    border: 2px solid #008CBA;
+    background-color: white;
+    width: 70%;
+    color: black;
+    transition: 0.4s;
+}
+.input_precio{
+    display: flex;
+    vertical-align: middle;
+}
+/* INPUT NUMBER */
+.cantidad_comprar{
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 50px;
+    margin-left: 10px;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 18px;
+}

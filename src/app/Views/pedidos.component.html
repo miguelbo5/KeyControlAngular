@@ -1,0 +1,83 @@
+<main>
+
+    <p class="titulo">Pedidos</p>
+
+    <div *ngIf="!mostrarFormulario">
+        <button (click)="mostrarFormulario ? mostrarFormulario = false : mostrarFormulario = true;" class="boton"> Añadir pedido</button>
+    </div>
+    
+    <div *ngIf="mostrarFormulario">
+        <button (click)="mostrarFormulario ? mostrarFormulario = false : mostrarFormulario = true;" class="boton">Ver listado</button>
+    </div>
+    
+    <form #formPedidos="ngForm" *ngIf="mostrarFormulario">
+        <div class="contenedor">
+    
+            <p>Rellena el formulario para crear un pedido.</p>
+        
+            <hr>
+        
+            <label for="emailCliente" class="texto_negrita">Email cliente</label>
+            <input #email="ngModel" type="text" placeholder="Introduce el email del comprador" name="emailCliente" [(ngModel)]="formulario.emailCliente" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+    
+            <span *ngIf="email.touched && !email.valid">
+
+                <b>Email no valido</b> <br>
+        
+              </span>
+
+            <label for="productoComprado" class="texto_negrita">Producto comprado</label>
+            <input #prodComprado="ngModel" type="text" placeholder="Introduce el producto comprado" name="productoComprado" [(ngModel)]="formulario.productoComprado" required>
+    
+            <label for="direccion" class="texto_negrita">Direccion</label>
+            <input #direccion="ngModel" type="text" placeholder="Introduce la direccion" name="direccion" [(ngModel)]="formulario.direccion" required>
+              
+            <label for="metodoPago" class="texto_negrita">Metodo de pago</label>
+
+            <label class="container_rb">Tarjeta
+                <input type="radio" name="metodoPago" [(ngModel)]="formulario.metodoPago" value="Tarjeta" required>
+                <span class="checkmark"></span>
+            </label>
+            <label class="container_rb">PayPal
+                <input type="radio" name="metodoPago" [(ngModel)]="formulario.metodoPago" value="PayPal" required>
+                <span class="checkmark"></span>
+            </label>
+            <label class="container_rb">Tranferencia
+                <input type="radio" name="metodoPago" [(ngModel)]="formulario.metodoPago" value="Tranferencia" required>
+                <span class="checkmark"></span>
+            </label>
+                  
+            <hr>
+              
+            <button [disabled] ="!formPedidos.form.valid" (click)="insertarPedido()" type="submit" class="registerbtn">Añadir pedido</button>
+    
+        </div>
+    </form>
+
+
+
+    <table *ngIf="!mostrarFormulario" class="table table-md-responsive">
+        <!-- table content here -->
+        <thead class="thead-dark">
+            <tr>
+                <th>Email de cliente</th>
+                <th>Producto comprado</th>
+                <th>Direccion de envio</th>
+                <th>Precio total</th>
+                <th>Metodo de pago</th>
+                <th>Borrar</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let pedido of listadoPedidos; let i = index">
+            <td>{{pedido.emailCliente}}</td>
+            <td>{{pedido.productoComprado}}</td>
+            <td>{{pedido.direccionEnvio}}</td>
+            <td>{{pedido.precioTotal | currency:'EUR':'symbol-narrow':'2.0-2' | dinero}} </td>
+            <td>{{pedido.metodoPago}}</td>
+            <td><button class="btn btn-outline-light" (click)="borrarPedido(i)"><img  src="../../assets/img/icono_papelera.png" alt=""></button></td>
+            <td><button class="btn btn-outline-light"><img  src="../../assets/img/icono_lapiz.png" alt=""></button></td>
+        </tr>
+    </table>
+    
+</main>

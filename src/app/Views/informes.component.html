@@ -1,0 +1,84 @@
+<main>
+
+    <p style="font-size: 30px; text-align: center;">Informes</p>
+
+        <div class="contenedor_tablas">
+            <div class="tab">
+                <button class="tablinks" onclick="openTable(event, 'Pedidos')"><h3>Pedidos</h3></button>
+                <button class="tablinks" onclick="openTable(event, 'Clientes')"><h3>Clientes</h3></button>
+                <button class="tablinks" onclick="openTable(event, 'Productos')"><h3>Productos</h3></button>
+            </div>
+          
+            <div id="Pedidos" class="tabcontent">
+            
+            <table>
+                <tr>
+                    <th>Email del cliente</th>
+                    <th>Producto comprado</th>
+                    <th>Direccion de envio</th>
+                    <th>Precio total</th>
+                    <th>Metodo de pago</th>
+                </tr>
+                <tr *ngFor="let pedido of listadoPedidos; let i = index">
+                    <td>{{pedido.emailCliente}}</td>
+                    <td>{{pedido.productoComprado}}</td>
+                    <td>{{pedido.direccionEnvio}}</td>
+                    <td>{{pedido.precioTotal | currency:'EUR':'symbol-narrow':'2.0-2' | dinero}}</td>
+                    <td>{{pedido.metodoPago}}</td>
+                </tr>
+                
+            </table>
+
+            </div>
+          
+          <div id="Clientes" class="tabcontent">
+            
+            <table>
+                <tr>
+                    <th>Nombre y apellidos</th>
+                    <th>Email</th>
+                    <th>Fecha de registro</th>
+                    <th>Direccion de envio</th>
+                </tr>
+                <tr *ngFor="let cliente of listadoClientes; let i = index">
+                    <td>{{cliente.nombre | nombreApellido:cliente.apellidos}}</td>
+                    <td>{{cliente.email}}</td>
+                    <td>{{cliente.fecha | date: 'dd/MM/yyyy'}}</td>
+                    <td>{{cliente.direccion}}</td>
+                </tr>
+                
+            </table>
+
+          </div>
+          
+          <div id="Productos" class="tabcontent">
+        
+            <table>
+                <tr>
+                    <th>Nombre producto</th>
+                    <th>Precio</th>
+                    <th>Veces comprado</th>
+                    <th>Tipo teclas</th>
+                    <th>Marca</th>
+                    <th>Inalam.</th>
+                    <th>Teclado num.</th>
+                </tr>
+                <tr *ngFor="let producto of listadoProductos; let i = index">
+                    <td>{{producto.nombre}}</td>
+                    <td>{{producto.precio | currency:'EUR': 'symbol-narrow':'2.0-2' | dinero}}</td>
+                    <td>{{producto.vecesComprado}}</td>
+                    <td>{{producto.tipoTeclas}}</td>
+                    <td>{{producto.marcaTeclado}}</td>
+                    <td>{{producto.inalambrico | trueFalse}}</td>
+                    <td>{{producto.tecladoNumerico | trueFalse}}</td>
+                </tr>
+                
+            </table>
+
+          </div>
+
+        </div>
+        
+        <button class="btn"><i class="fa fa-download" ></i> Descargar PDF</button>
+
+</main>

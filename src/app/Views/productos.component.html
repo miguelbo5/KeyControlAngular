@@ -1,0 +1,133 @@
+<main>
+
+    <div class="filtros_productos">
+
+        <button *ngIf="!mostrarFormulario" (click)="mostrarFormulario ? mostrarFormulario = false : mostrarFormulario = true;" class="btn btn-primary espacio_botones"> Añadir producto</button>
+
+        <button *ngIf="mostrarFormulario" (click)="mostrarFormulario ? mostrarFormulario = false : mostrarFormulario = true;" class="btn btn-primary espacio_botones">Ver listado</button>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle espacio_botones" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Marca
+            </button>
+            <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Logitech</a>
+            <a class="dropdown-item" href="#">Razer</a>
+            <a class="dropdown-item" href="#">Corsair</a>
+            <a class="dropdown-item" href="#">G. Skill</a>
+            </div>
+        </div>
+
+        <div class="custom-control custom-checkbox custom-control-inline espacio_botones">
+            <input type="checkbox" class="custom-control-input" id="defaultInline1">
+            <label class="custom-control-label" for="defaultInline1">Teclado numerico</label>
+        </div>
+            
+        <div class="custom-control custom-checkbox custom-control-inline espacio_botones">
+            <input type="checkbox" class="custom-control-input" id="defaultInline2">
+            <label class="custom-control-label" for="defaultInline2">Inalambrico</label>
+        </div>
+        
+    </div>
+
+    <form #formProductos="ngForm" *ngIf="mostrarFormulario">
+
+        <div class="container_form">
+
+            <p>Rellena el formulario para crear un producto.</p>
+
+            <hr>
+        
+            <label for="nombre" class="texto_negrita">Nombre del teclado</label>
+            <input #nombre="ngModel" type="text" placeholder="Introduce el nombre del producto" name="nombre" [(ngModel)]="formulario.nombre" required>
+
+
+            <label for="precio" class="texto_negrita">Precio del teclado</label>
+            <input #precio="ngModel" type="text" placeholder="Introduce el precio del producto" name="precio" [(ngModel)]="formulario.precio" required pattern="[0-9]{1,4}">
+
+            <span *ngIf="precio.touched && !precio.valid">
+
+                <br> <b>Precio incorrecto, introduce numeros</b> <br>
+    
+            </span>
+
+            <label for="caracteristicas" class="texto_negrita">Caracteristicas del teclado</label>
+            <input #caracteristicas="ngModel" type="text" placeholder="Introduce las caracteristicas" name="caracteristicas" [(ngModel)]="formulario.caracteristicas" required>
+
+
+            <label for="marca" class="texto_negrita">Marca del teclado</label>
+            <input #marca="ngModel" type="text" placeholder="Introduce la marca del teclado" name="marca" [(ngModel)]="formulario.marca" required>
+
+
+            <label for="tecladoNumerico" class="texto_negrita">¿Tiene teclado numérico?</label>
+            <label class="container_rb">Sí
+                <input type="radio" name="tecladoNumerico" [(ngModel)]="formulario.tecladoNumerico" value="true" required>
+                <span class="checkmark_rb"></span>
+            </label>
+            <label class="container_rb">No
+                <input type="radio" name="tecladoNumerico" [(ngModel)]="formulario.tecladoNumerico" value="false" required>
+                <span class="checkmark_rb"></span>
+            </label>
+
+
+            <label for="inalambrico" class="texto_negrita">¿Es inalambrico?</label>
+            <label class="container_rb">Sí
+                <input type="radio" name="inalambrico" [(ngModel)]="formulario.metodoPago" value="true" required>
+                <span class="checkmark_rb"></span>
+            </label>
+            <label class="container_rb">No
+                <input type="radio" name="inalambrico" [(ngModel)]="formulario.metodoPago" value="false"required>
+                <span class="checkmark_rb"></span>
+            </label>
+            
+            <label for="tipoTeclas" class="texto_negrita">Tipo de teclas</label>
+  
+            <label class="container_rb">Cherry Red
+                <input type="radio" name="tipoTeclas" [(ngModel)]="formulario.tipoTeclas" value="Red" required>
+                <span class="checkmark_rb"></span>
+            </label>
+            <label class="container_rb">Cherry Brown
+                <input type="radio" name="tipoTeclas" [(ngModel)]="formulario.tipoTeclas" value="Brown" required>
+                <span class="checkmark_rb"></span>
+            </label>
+            <label class="container_rb">Cherry Blue
+                <input type="radio" name="tipoTeclas" [(ngModel)]="formulario.tipoTeclas" value="Blue" required>
+                <span class="checkmark_rb"></span>
+            </label>
+            <label class="container_rb">Cherry Black
+                <input type="radio" name="tipoTeclas" [(ngModel)]="formulario.tipoTeclas" value="Black" required>
+                <span class="checkmark_rb"></span>
+            </label>
+
+            <hr>
+        
+            <button [disabled] ="!formProductos.form.valid" type="submit" (click)="insertarProducto()" class="btn btn-primary">Crear producto</button>
+
+        </div>
+
+    </form>
+
+    <article *ngIf="!mostrarFormulario" class="productos">
+        <article *ngFor="let producto of listadoProductos; let i = index">
+
+            <div class="card">
+                <img [routerLink]="['/producto/' + producto.id]" class="card-img-top" src="..\..\assets\img\miniaturas_tienda\{{producto.imagen}}" alt="No se puede cargar el producto">
+                <div class="card-body">
+                    <h4 class="card-title">{{producto.nombre}}</h4>
+                    <p class="card-text">{{producto.precio | currency:'EUR':'symbol-narrow':'2.0-2' | dinero}}</p>
+                    <a class="btn btn-primary espacio_botones">
+                        <fa-icon (click)="borrarProducto(i)" class="icono" size="2x" [styles]="{'color': 'black'}" [icon]="faTrash"></fa-icon>
+                    </a>
+                    <a [routerLink]="['/producto/' + producto.id]" class="btn btn-primary espacio_botones">
+                        Ver producto
+                    </a>
+                    <a class="btn btn-primary espacio_botones">
+                        <fa-icon class="icono" size="2x" [styles]="{'color': 'black'}" [icon]="faPencil"></fa-icon>
+                    </a>
+                </div>
+            </div>
+
+        </article>
+    </article>
+
+</main>

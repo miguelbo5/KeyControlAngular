@@ -1,0 +1,18 @@
+.navbar{
+    width: 100%;
+}
+.navbar-light{
+    background-color: #0339A6; 
+}
+.icono{
+    cursor: pointer;
+    outline: none;
+    margin-right: 50px;
+}
+.iconos{
+    width: 15%;
+    
+}
+.separacion{
+    justify-content: space-between;
+}

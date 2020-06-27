@@ -1,0 +1,29 @@
+.productos{
+    display: flex;
+    flex-flow: wrap;
+    width: 100%;
+    margin-bottom: 50px;
+}
+.texto{
+    font-size: x-large;
+}
+article{
+    width: 33.3%;
+    text-align: center; 
+}
+
+.filtros_productos{
+    padding-top: 50px;
+    margin-left: 50px;
+}
+.card{
+    border: none;
+    padding: 60px;
+}
+
+/* Checkboxes */
+.custom-control-inline{
+    margin-top: auto;
+    margin-left: 25px;
+    margin-bottom: auto;
+}

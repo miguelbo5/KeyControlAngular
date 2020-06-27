@@ -1,0 +1,76 @@
+<main>
+
+    <p class="titulo">Clientes</p>
+
+    <div *ngIf="!mostrarFormulario">
+    <button (click)="mostrarFormulario ? mostrarFormulario = false : mostrarFormulario = true;" class="btn"> Añadir cliente</button>
+    </div>
+
+    <div *ngIf="mostrarFormulario">
+        <button (click)="mostrarFormulario ? mostrarFormulario = false : mostrarFormulario = true;" class="btn">Ver listado</button>
+    </div>
+
+    <form #formClientes="ngForm" *ngIf="mostrarFormulario">
+        <div class="container">
+    
+            <p>Rellena el formulario para crear una cuenta.</p>
+    
+            <hr>
+    
+            <label for="name" class="texto_negrita">Nombre</label>
+            <input #nombre="ngModel" type="text" placeholder="Introduce el nombre" name="nombre" [(ngModel)]="formulario.nombre" required>
+
+            <label for="subname" class="texto_negrita">Apellidos</label>
+            <input #apellido="ngModel" type="text" placeholder="Introduce los apellidos" name="apellidos" [(ngModel)]="formulario.apellidos" required>
+
+            <label for="direccion" class="texto_negrita">Direccion</label>
+            <input #direccion="ngModel" type="text" placeholder="Introduce la direccion" name="direccion" [(ngModel)]="formulario.direccion" required>
+          
+            <label for="email" class="texto_negrita">Email</label>
+            <input #email="ngModel" type="text" placeholder="Introduce el email" name="email" [(ngModel)]="formulario.email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+          
+            <span *ngIf="email.touched && !email.valid">
+
+                <b>Email no valido</b> <br>
+        
+            </span>
+
+            <label for="psw" class="texto_negrita">Contraseña</label>
+            <input #pswd="ngModel" type="password" placeholder="Introduce la contraseña" name="psw" [(ngModel)]="formulario.password" required pattern="^[A-Za-z0-9-_.%]{8,30}$">
+              
+            <span *ngIf="pswd.touched && !pswd.valid">
+
+                <b>Contraseña incorrecta (minimo 8 caracteres)</b> <br>
+        
+            </span>
+
+            <hr>
+          
+            <button [disabled] ="!formClientes.form.valid" (click)="insertarCliente()" type="submit" class="registerbtn">Añadir usuario</button>
+
+        </div>
+    </form>
+
+        <table *ngIf="!mostrarFormulario">
+            
+            <tr>
+                <th>Nombre y apellido</th>
+                <th>Email</th>
+                <th>Fecha creacion de cuenta</th>
+                <th>Dirección</th>
+                <th>Borrar</th>
+                <th>Editar</th>
+            </tr>
+
+            <tr *ngFor="let cliente of listadoClientes; let i = index">
+                <td>{{cliente.nombre | nombreApellido:cliente.apellidos}}</td>
+                <td><span [innerHTML] = "cliente.email | negrita"></span></td>
+                <td>{{cliente.fecha | date: 'dd/MM/yyyy'}}</td>
+                <td>{{cliente.direccion | titlecase}}</td>
+                <td><button (click)="borrarCliente(i)"><img src="../../assets/img/icono_papelera.png" alt=""></button></td>
+                <td><button><img src="../../assets/img/icono_lapiz.png" alt=""></button></td>
+            </tr>
+
+        </table>
+
+</main>

@@ -1,0 +1,40 @@
+<main>
+
+    <form #formLogin="ngForm" (ngSubmit)="onSubmit()">
+        <div class="container">
+
+          <p style="text-align: center; font-size: 30px;">Login</p>
+          
+          <hr>
+      
+          <label for="email">Email</label>
+          <input type="text" name="email" #mail="ngModel" placeholder="Introduce el email" [(ngModel)]="email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+      
+          <span *ngIf="mail.touched && !mail.valid">
+
+            <br> <b>Email no valido</b> <br>
+
+          </span>
+
+          <label for="psw">Contraseña</label>
+          <input type="password" #psw="ngModel" [(ngModel)]="password" placeholder="Introduce la contraseña" name="psw" required pattern="^[A-Za-z0-9-_.%]{8,30}$">
+          
+          <span *ngIf="psw.touched && !psw.valid">
+
+            <br> <b>Contraseña no valida</b> <br>
+
+          </span>
+
+          <hr>
+      
+          <button type="submit" [disabled] ="!formLogin.form.valid" class="registerbtn">Inicio sesión</button>
+
+        </div>
+        
+        <div class="container signin">
+          <p>¿Aun no tienes una cuenta creada? <a [routerLink]="['', 'registro']">Create una cuenta</a>.</p>
+        </div>
+
+    </form>
+
+</main>

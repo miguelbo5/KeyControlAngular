@@ -1,0 +1,52 @@
+<main>
+        <div class="filtros_productos">
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Marca
+                </button>
+                <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Logitech</a>
+                <a class="dropdown-item" href="#">Razer</a>
+                <a class="dropdown-item" href="#">Corsair</a>
+                <a class="dropdown-item" href="#">G. Skill</a>
+                </div>
+            </div>
+
+            <div class="custom-control custom-checkbox custom-control-inline">
+                <input type="checkbox" class="custom-control-input" id="defaultInline1">
+                <label class="custom-control-label" for="defaultInline1">Teclado numerico</label>
+            </div>
+            
+            <div class="custom-control custom-checkbox custom-control-inline">
+                <input type="checkbox" class="custom-control-input" id="defaultInline2">
+                <label class="custom-control-label" for="defaultInline2">Inalambrico</label>
+            </div>
+        
+        </div>
+
+        <article  class="productos">
+            <article *ngFor="let producto of listadoProductos; let i = index">
+
+                <div class="card">
+                    <img [routerLink]="['/producto/' + producto.id]" class="card-img-top" src="..\..\assets\img\miniaturas_tienda\{{producto.imagen}}" alt="No se puede cargar el producto">
+                    <div class="card-body">
+                        <h4 class="card-title">{{producto.nombre}}</h4>
+                        <p class="card-text">{{producto.precio | currency:'EUR':'symbol-narrow':'2.0-2' | dinero}}</p>
+                        <a [routerLink]="['/producto/' + producto.id]" class="btn btn-primary">Ver producto</a>
+                    </div>
+                </div>
+
+                <!-- <section>
+                    <a >
+                        <img class="imagenes_productos" src="..\..\assets\img\miniaturas_tienda\{{producto.imagen}}" alt="">
+                    </a>
+                </section>
+                <header>
+                    <p class="texto">{{producto.nombre}}</p>
+                    <p>{{producto.precio | currency:'EUR':'symbol-narrow':'2.0-2' | dinero}}</p>
+                </header> -->
+                
+            </article>
+        </article>
+</main>

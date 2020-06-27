@@ -1,0 +1,75 @@
+<main>
+
+    <div>
+
+        <p class="nombre_producto">{{producto.nombre}}</p>
+        <p class="tipo_teclas">{{producto.tipoTeclas}}</p>
+
+    </div>  
+
+    <div class="container_imagen_precio">
+
+        <div class="container_imagen">
+
+            <img class="imagen_producto" src="../../assets/img/miniaturas_tienda/{{producto.imagen}}" alt="">
+
+        </div>
+
+        <div class="container_precio">
+
+            <div class="input_precio">
+
+                <input class="cantidad_comprar" type="number" min="1" max="99" step="1" value="1">
+
+                <p class="precio_producto">{{producto.precio | currency:'EUR':'symbol-narrow':'2.0-2' | dinero}}</p>
+
+            </div>
+
+            <div>
+
+                <button class="button boton_favoritos">
+
+                    <img src="../../assets/img/icono_corazon.png" alt="">
+
+                </button>
+
+                <button class="button boton_carrito">
+
+                    <p>Añadir al carrito</p>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <p class="titulo_caracteristicas">Caracteristicas</p>
+
+    <div class="caracteristicas">
+
+        <p>{{producto.caracteristicas}}</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet tempus tortor, non sodales orci faucibus ut. 
+            Nunc sed lobortis dolor. Maecenas tempor, erat sit amet suscipit interdum, ex mi iaculis ante, quis tempor quam quam quis lorem. Ut eget nulla magna. 
+            Sed venenatis nisl at ex gravida convallis. In quis convallis ipsum, pretium volutpat urna. 
+            Proin sed enim in orci eleifend bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet tempus tortor, non sodales orci faucibus ut. 
+            Nunc sed lobortis dolor. Maecenas tempor, erat sit amet suscipit interdum, ex mi iaculis ante, quis tempor quam quam quis lorem. Ut eget nulla magna. 
+            Sed venenatis nisl at ex gravida convallis. In quis convallis ipsum, pretium volutpat urna. 
+            Proin sed enim in orci eleifend bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet tempus tortor, non sodales orci faucibus ut. 
+            Nunc sed lobortis dolor. Maecenas tempor, erat sit amet suscipit interdum, ex mi iaculis ante, quis tempor quam quam quis lorem. Ut eget nulla magna. 
+            Sed venenatis nisl at ex gravida convallis. In quis convallis ipsum, pretium volutpat urna. 
+            Proin sed enim in orci eleifend bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet tempus tortor, non sodales orci faucibus ut. 
+            Nunc sed lobortis dolor. Maecenas tempor, erat sit amet suscipit interdum, ex mi iaculis ante, quis tempor quam quam quis lorem. Ut eget nulla magna. 
+            Sed venenatis nisl at ex gravida convallis. In quis convallis ipsum, pretium volutpat urna. 
+            Proin sed enim in orci eleifend bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+
+        </div>
+
+
+</main>

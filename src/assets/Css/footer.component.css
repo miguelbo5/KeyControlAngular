@@ -1,0 +1,12 @@
+footer{
+    width: 100%;
+
+    float: left;
+    background-color: #0339A6;
+
+    text-align: center;
+    vertical-align: middle;
+    
+    font-family: 'Tahoma';
+    color: #00A5FF;
+}

@@ -1,0 +1,44 @@
+<main>
+
+  <div *ngIf="!mostrarFormulario">
+      <button (click)="mostrarFormulario ? mostrarFormulario = false : mostrarFormulario = true;" class="btn"> Añadir comentario</button>
+  </div>
+  
+  <div *ngIf="mostrarFormulario">
+      <button (click)="mostrarFormulario ? mostrarFormulario = false : mostrarFormulario = true;" class="btn">Ver comentarios</button>
+  </div>
+  
+
+        <form *ngIf="mostrarFormulario" class="container" #formContacto="ngForm">
+      
+          <label for="name">Nombre</label>
+          <input type="text" id="nombre" name="nombre" [(ngModel)]="formulario.nombre" placeholder="Escribe tu nombre..." required>
+      
+          <label for="email">Email</label>
+          <input type="text" id="email" [(ngModel)]="formulario.email" name="email" placeholder="Escribe tu email..." required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+    
+          <span *ngIf="formulario.email.touched && !email.valid">
+
+            <p>Email no valido</p>
+
+        </span>
+
+          <label for="subject">Escribe tu consulta</label>
+          <textarea id="subject" name="subject" [(ngModel)]="formulario.mensaje" placeholder="Escribe lo que nos quieras decir, alguien te contestará lo más pronto posible." style="height:200px" required></textarea>
+      
+          <input class="registerbtn" [disabled] ="!formContacto.form.valid" type="submit" (click)="enviarComentario()" value="Enviar">
+      
+        </form>
+
+      <div *ngFor="let comentario of listadoComentarios; let i = index" class="card">
+        <div class="card-body">
+          <h4 class="card-title">{{comentario.nombre}}</h4>
+          <h6 class="card-subtitle mb-2 text-muted">{{comentario.fecha | date: 'dd/MM/yyyy'}}</h6>
+          <p class="card-text">
+            {{comentario.mensaje}}
+          </p>
+          <a href="#!" class="card-link">Borrar comentario</a>
+        </div>
+      </div>
+
+</main>

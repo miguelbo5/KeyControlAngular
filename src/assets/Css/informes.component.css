@@ -1,0 +1,141 @@
+/* TABLA */
+table {    
+  font-size: 18px;   
+  width: 100%; 
+  height: 100%;
+  text-align: left;    
+  border-collapse: collapse; 
+}
+th {     
+  font-size: 20px;     
+  font-weight: normal;     
+  padding: 8px;     
+  font-weight: bold;
+  background: #b9c9fe;
+  border-top: 4px solid #aabcfe;    
+  border-bottom: 1px solid #fff; 
+  color: #039; 
+}
+td {    
+  padding: 8px;     
+  background: #e8edff;     
+  border-bottom: 1px solid #fff;
+  color: #669;    
+  border-top: 1px solid transparent; 
+}
+tr:hover td {  
+  background: #d0dafd; 
+  color: #339; 
+}
+.container {
+  display: flex;
+  margin: 20px;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+  /* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+  /* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+  /* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+} 
+  /* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: rgb(33, 142, 243);
+} 
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+} 
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+} 
+  /* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+.contenedor_tablas{
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0px 12px;
+  transition: 0.3s;
+}
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+/*descarga (los otros estilos del boton estan en index)
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+*/
+
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  outline: none;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 40px;
+  margin-left: 10%;
+  margin-bottom: 20px;
+}
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}

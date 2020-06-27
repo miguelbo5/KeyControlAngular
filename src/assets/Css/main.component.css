@@ -1,0 +1,28 @@
+
+main{
+    width: 100%;
+    float: left;
+    background-color: orange;
+}
+
+.izquierda{
+    float: left;
+}
+
+article{
+    margin: 10px;
+    padding-bottom: 10px;
+    background-color: yellow;
+    clear: both;
+}
+
+section{
+    margin: 10px;
+    background-color: blue;
+    clear: both;
+}
+
+
+#margenes{
+    padding: 5px;
+}

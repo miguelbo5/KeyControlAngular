@@ -1,0 +1,22 @@
+main{
+    margin-left: auto;
+    margin-right: auto;
+}
+.imagenes_menu{
+    width: 80%;
+    height: 80%;
+}
+.menu_inicio{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+article{
+    width: 30%;
+    text-align: center;  
+    align-content: center;
+}
+.texto{
+    font-size: x-large;
+}
+

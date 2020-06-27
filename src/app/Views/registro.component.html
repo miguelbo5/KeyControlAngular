@@ -1,0 +1,52 @@
+<main>
+
+  <form #formRegistro="ngForm" (ngSubmit)="onSubmit()">
+    <div class="container">
+        
+      <p style="text-align: center; font-size: 30px;">Registro</p>
+      
+      <p>Rellena el formulario para crear una cuenta.</p>
+      
+      <hr>
+  
+      <label for="email" class="texto_negrita">Email</label>
+      <input type="text" [(ngModel)]="email" #mail="ngModel" placeholder="Introduce el email" name="email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+  
+      <span *ngIf="mail.touched && !mail.valid">
+
+        <b>Email incorrecto</b> <br>
+
+      </span>
+
+      <label for="psw" class="texto_negrita">Contraseña</label>
+      <input type="password" [(ngModel)]="password" #pswd="ngModel" placeholder="Introduce la contraseña" name="psw" required pattern="^[A-Za-z0-9-_.%]{8,30}$">
+    
+      <span *ngIf="pswd.touched && !pswd.valid">
+
+        <b>Contraseña incorrecta (minimo 8 caracteres)</b> <br>
+
+      </span>
+
+      <label for="psw-repeat" class="texto_negrita">Repite contraseña</label>
+      <input type="password" [(ngModel)]="passwordRepetir" #pswdRepeat="ngModel" placeholder="Repite la contraseña" name="psw-repeat" required pattern="^[A-Za-z0-9-_.%]{8,30}$">
+      
+      <span *ngIf="pswdRepeat.touched && !pswdRepeat.valid">
+
+        <b>Contraseña incorrecta </b> <br>
+
+      </span>
+
+      <hr>
+
+      <p>Creando esta cuenta estas de acuerdo con <a [routerLink]="['*']">Terminos y Privacidad</a>.</p>
+      
+      <button type="submit" [disabled] ="!formRegistro.form.valid" class="registerbtn">Registrarse</button>
+
+    </div>
+        
+    <div class="container signin">
+      <p>¿Ya tienes una cuenta creada? <a [routerLink]="['', 'login']">Inicia sesion</a>.</p>
+    </div>
+  </form>
+
+</main>

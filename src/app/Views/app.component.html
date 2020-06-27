@@ -1,0 +1,24 @@
+
+<cabecera></cabecera>
+
+<div id="col-container">
+  
+  <div *ngIf="router.url == '/login' || router.url == '/registro' || router.url == '/carrito'; then sinAside; else conAside">
+  
+  </div>
+
+  <ng-template #conAside>
+
+      <lateral style="width: 15%;"></lateral>
+
+  </ng-template>
+
+  <ng-template #sinAside>
+
+  </ng-template>
+
+  <principal></principal>
+
+</div>
+
+<pie></pie>

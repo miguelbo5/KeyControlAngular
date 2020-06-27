@@ -1,0 +1,24 @@
+#col-container{
+    width: 100%;
+    display: flex;
+}
+
+lateral{
+    width: 15%;
+    display: table-cell;
+}
+
+principal{
+    width: 100%;
+    display: table-cell;
+}
+
+producto{
+    width: 80%;
+    display: table-cell;
+}
+
+carrito{
+    width: 80%;
+    display: table-cell;
+}

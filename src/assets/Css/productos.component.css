@@ -1,0 +1,149 @@
+.productos{
+    display: flex;
+    flex-flow: wrap;
+    width: 100%;
+    margin-bottom: 50px;
+}
+.texto{
+    font-size: x-large;
+}
+article{
+    width: 33.3%;
+    text-align: center; 
+}
+
+.espacio_botones{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.filtros_productos{
+    margin-left: 50px;
+}
+.card{
+    border: none;
+    padding: 60px;
+}
+/* Checkboxes */
+.custom-control-inline{
+    margin-top: auto;
+    margin-left: 25px;
+    margin-bottom: auto;
+}
+main{
+    padding-top: 50px;
+}
+/*FORMULARIO*/
+.container_form {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+  /* Full-width input fields */
+input[type=text]{
+    width: 100%;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+  /* Overwrite default styles of hr */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+  /* Set a style for the submit button */
+.registerbtn {
+    background-color: #1c9fdb;
+    padding: 16px 20px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+    color: white;
+}  
+.registerbtn:hover {
+    opacity: 1;
+    width: 100%;
+    margin: 0;
+    transition: 0.5;
+    background-color: #1c65db;
+}
+.registerbtn:disabled{
+    background-color: #1c9fdb;
+    opacity: 0.5;
+    padding: 16px 20px;
+    border: none;
+    cursor: not-allowed;
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+    color: white;
+}
+  /* Add a blue text color to links */
+/*RADIO BUTTON*/
+.container_rb {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+  /* Hide the browser's default radio button */
+.container_rb input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+  /* Create a custom radio button */
+.checkmark_rb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+/* On mouse-over, add a grey background color */
+.container_rb:hover input ~ .checkmark_rb {
+  background-color: #ccc;
+}
+/* When the radio button is checked, add a blue background */
+.container_rb input:checked ~ .checkmark_rb {
+  background-color: #2196F3;
+}
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark_rb:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  /* Show the indicator (dot/circle) when checked */
+.container_rb input:checked ~ .checkmark_rb:after {
+    display: block;
+}
+  /* Style the indicator (dot/circle) */
+.container_rb .checkmark_rb:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
